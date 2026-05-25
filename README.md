@@ -1,64 +1,98 @@
 # Tiny Windows Shutdown Scheduler
 
-A tiny Windows GUI app for scheduling shutdown and related power actions.
+**Tiny Windows Shutdown Scheduler** is a small portable **Windows shutdown timer** and **Windows shutdown scheduler** for shutdown, restart, sleep, hibernate, lock, and log off actions.
 
-Tiny Windows Shutdown Scheduler is a portable shutdown timer for Windows. It is built as a small native WinForms executable with no Python, Electron, installer, or background service.
-
-## Features
-
-- Hours and minutes input
-- Quick presets: 15 min, 30 min, 1 hour, 2 hours, Tonight
-- Actions: Shutdown, Restart, Sleep, Hibernate, Lock, Log off
-- Confirmation before scheduling
-- Shows exact action time
-- Live countdown after scheduling
-- Cancel scheduled shutdown/restart, or cancel in-app timers before they fire
-- Small native Windows executable, no terminal window
+It is designed for people who want a fast, simple, no-install Windows power timer: download one EXE, choose a delay, confirm, and let Windows handle the action.
 
 ## Download
 
-Use the executable from the latest GitHub Release:
+Download the latest release:
+
+[Tiny Windows Shutdown Scheduler.exe](https://github.com/pavanbadempet/tiny-windows-shutdown-scheduler/releases/latest)
+
+The app is portable. No installer, no Python, no Electron, no account, no background service.
+
+## Why Use It
+
+- Tiny native Windows executable, about 29 KB
+- Simple Windows shutdown timer with hours and minutes
+- Restart timer, sleep timer, hibernate timer, lock timer, and log off timer
+- Presets for 15 minutes, 30 minutes, 1 hour, 2 hours, and tonight
+- Confirmation before scheduling a power action
+- Live countdown while the timer is running
+- Cancel button for scheduled shutdown/restart and in-app timers
+- No terminal window
+- Open source under the MIT License
+
+## Features
+
+| Feature | Supported |
+| --- | --- |
+| Schedule shutdown | Yes |
+| Schedule restart | Yes |
+| Schedule sleep | Yes |
+| Schedule hibernate | Yes |
+| Schedule lock | Yes |
+| Schedule log off | Yes |
+| Live countdown | Yes |
+| Preset timers | Yes |
+| Portable EXE | Yes |
+| Installer required | No |
+
+## Common Searches This App Solves
+
+This project is meant to be a clean open-source answer for:
+
+- Windows shutdown timer
+- Windows shutdown scheduler
+- Portable shutdown timer for Windows
+- Tiny shutdown timer EXE
+- Schedule Windows shutdown after 30 minutes
+- Schedule Windows restart timer
+- Windows sleep timer
+- Windows hibernate timer
+- Lock Windows after timer
+- Log off Windows after timer
+
+## How It Works
+
+For shutdown and restart, the app uses Windows' built-in scheduler commands:
 
 ```text
-Tiny Windows Shutdown Scheduler.exe
+shutdown /s /t <seconds>
+shutdown /r /t <seconds>
+shutdown /a
 ```
 
-The app is portable. Download the EXE, run it, choose an action and delay, then confirm.
+For hibernate, lock, and related actions, it uses standard Windows commands such as:
 
-## Build EXE
+```text
+shutdown /h
+rundll32 user32.dll,LockWorkStation
+```
 
-Requires the .NET Framework C# compiler included with Windows.
+Shutdown and restart timers are scheduled through Windows, so they can still run after closing the app. Sleep, hibernate, lock, and log off timers are handled by the app, so keep it open until the timer finishes.
 
-Build:
+Save your work before scheduling a shutdown, restart, sleep, hibernate, lock, or log off action.
+
+## Build From Source
+
+Requires Windows with the .NET Framework C# compiler.
 
 ```powershell
 build.bat
 ```
 
-The executable will be created at:
+The executable is created at:
 
 ```text
 dist\Tiny Windows Shutdown Scheduler.exe
 ```
 
-## Notes
+## Project Positioning
 
-This app uses Windows' built-in commands for power actions:
-
-- `shutdown /s /t <seconds>` to schedule shutdown
-- `shutdown /r /t <seconds>` to schedule restart
-- `shutdown /a` to cancel a pending shutdown
-- `shutdown /h` to hibernate
-- `rundll32 user32.dll,LockWorkStation` to lock
-
-Save your work before scheduling a power action.
-
-Shutdown and restart timers are scheduled through Windows, so they can still run after closing the app. Sleep, hibernate, lock, and log off timers are handled by the app, so keep it open until the timer finishes.
-
-## Keywords
-
-windows shutdown timer, windows shutdown scheduler, portable shutdown timer, restart timer, sleep timer, hibernate timer, lock timer, tiny windows utility
+Tiny Windows Shutdown Scheduler is intentionally small. It is not an Electron app, not a Python bundle, and not a heavy automation suite. It focuses on one job: a fast, portable Windows shutdown scheduler that is easy to understand and easy to verify.
 
 ## License
 
-MIT
+MIT License. See [LICENSE](LICENSE).
