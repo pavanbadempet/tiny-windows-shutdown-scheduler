@@ -4,6 +4,8 @@
 
 It is designed for people who want a fast, simple, no-install Windows power timer: download one EXE, choose a delay, confirm, and let Windows handle the action.
 
+![Tiny Windows Shutdown Scheduler screenshot](assets/tiny-windows-shutdown-scheduler.png)
+
 ## Download
 
 Download the latest release:
